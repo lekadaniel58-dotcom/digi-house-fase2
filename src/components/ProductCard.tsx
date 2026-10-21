@@ -10,8 +10,8 @@ export default function ProductCard({ p }: { p: Product }) {
   return (
     <motion.article layout initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} whileHover={{ y: -4 }}
       className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-navy/5 transition hover:shadow-xl">
-      <div className="aspect-square bg-navy-50 overflow-hidden">
-        {p.images[0] ? <img src={p.images[0]} alt={p.name} loading="lazy" className="h-full w-full object-contain p-3 transition duration-500 group-hover:scale-105" />
+      <div className="aspect-square bg-navy-50 overflow-hidden flex items-center justify-center">
+        {p.images[0] ? <img src={p.images[0]} alt={p.name} loading="lazy" className="max-h-full max-w-full w-auto h-auto object-contain p-2" />
           : <div className="h-full grid place-items-center text-navy/30 text-sm">Foto non disponibile</div>}
       </div>
       <div className="flex flex-1 flex-col gap-1 p-4">
