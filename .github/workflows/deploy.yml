@@ -1,4 +1,5 @@
 name: Deploy Digi House to GitHub Pages
+# Rebuild and publish the compiled Vite site
 on:
   push:
     branches: [main]
