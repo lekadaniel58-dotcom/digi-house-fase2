@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { Menu, MessageCircle, Phone, X } from 'lucide-react';
-import { supabase, waLink } from '../lib/supabase';
+import { waLink } from '../lib/supabase';
 
 const links = [['/catalogo', 'Catalogo'], ['/promozioni', 'Promozioni'], ['/chi-siamo', 'Chi siamo'], ['/contatti', 'Contatti']] as const;
 
@@ -26,10 +26,6 @@ export default function Layout() {
             {links.map(([to, label]) => <NavLink key={to} to={to} onClick={() => setOpen(false)} className="py-1">{label}</NavLink>)}
           </nav>)}
       </header>
-      {!supabase && (
-        <div role="status" className="bg-gold-100 text-navy text-sm text-center py-2 px-4">
-          Catalogo in attesa di configurazione: collegare Supabase (vedi README).
-        </div>)}
       <main className="flex-1"><Outlet /></main>
       <a href={waLink('Buongiorno, vorrei informazioni sui vostri prodotti.')} target="_blank" rel="noopener noreferrer"
         className="fixed bottom-5 right-5 z-30 flex items-center gap-2 rounded-full bg-[#25D366] text-white px-4 py-3 shadow-xl transition hover:scale-105" aria-label="Scrivici su WhatsApp">
