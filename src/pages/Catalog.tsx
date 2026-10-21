@@ -33,7 +33,7 @@ export default function Catalog() {
     <div className="mx-auto max-w-7xl px-4 py-10">
       <h1 className="font-display text-3xl mb-6">Catalogo</h1>
       <div className="mb-6 flex flex-wrap items-center gap-3">
-        <label className="relative flex-1 min-w-[220px]">
+        <label className="relative w-full flex-none sm:w-auto sm:flex-1 min-w-0 sm:min-w-[220px]">
           <span className="sr-only">Cerca prodotto</span>
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-navy/40" size={18} />
           <input value={q} onChange={e => setQ(e.target.value)} placeholder="Cerca per nome, codice o descrizione"
@@ -50,7 +50,7 @@ export default function Catalog() {
       {loading ? <p>Caricamento…</p> : error ? <p role="alert" className="text-red-700">Errore: {error}</p> :
         list.length === 0 ? <p>Nessun prodotto trovato.</p> :
         <>
-          <p className="mb-4 text-sm text-navy/60">{list.length} prodotti</p>
+          <p className="mb-4 text-sm text-navy/60" role="status">{list.length} {list.length === 1 ? 'prodotto' : 'prodotti'}</p>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">{list.map(p => <ProductCard key={p.id} p={p} />)}</div>
         </>}
     </div>

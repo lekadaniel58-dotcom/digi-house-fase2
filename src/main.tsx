@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -9,7 +9,7 @@ import Placeholder from './pages/Placeholder';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
@@ -20,6 +20,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="*" element={<Placeholder title="Pagina non trovata" />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );

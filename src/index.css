@@ -1,3 +1,9 @@
 @tailwind base; @tailwind components; @tailwind utilities;
 body { font-family: Inter, system-ui, sans-serif; @apply bg-navy-50 text-navy; }
 :focus-visible { @apply outline-2 outline-offset-2 outline-gold; }
+img { max-width: 100%; }
+article { min-width: 0; overflow-wrap: anywhere; }
+select { max-width: 100%; }
+@media (max-width: 479px) {
+  main .grid.grid-cols-2 { grid-template-columns: minmax(0, 1fr); }
+}
